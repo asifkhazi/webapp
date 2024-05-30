@@ -12,7 +12,7 @@ pipeline {
 		stage('SonarQube analysis') {
       			steps {
         			withSonarQubeEnv('SonarQube Scanner') {
-          			sh 'sonar-scanner'
+          			sh 'SonarQube Scanner'
 				sh '''mvn clean verify sonar:sonar \
                       		-Dsonar.projectKey=webapp \
                       		-Dsonar.projectName='webapp' \
