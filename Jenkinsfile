@@ -15,7 +15,6 @@ pipeline {
             		}
       			steps {
         			withSonarQubeEnv('SonarQube Scanner') {
-          			sh 'SonarQube Scanner'
 				sh '''mvn clean verify ${SCANNER_HOME}/bin/sonar-scanner \
                       		-Dsonar.projectKey=webapp \
                       		-Dsonar.projectName='webapp' \
