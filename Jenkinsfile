@@ -15,11 +15,12 @@ pipeline {
             		}
       			steps {
         			withSonarQubeEnv('SonarQube Scanner') {
-				sh '''${SCANNER_HOME}/bin/mvn clean verify sonar:sonar \
-                      		-Dsonar.projectKey=webapp \
-                      		-Dsonar.projectName='webapp' \
-                      		-Dsonar.host.url=http://18.60.48.152:9000 \
-                      		-Dsonar.token=sqp_48f8ec60a43aa9b05e9d8442e9a6392dae1e34e5'''
+					sh 'mvn clean verify'
+					sh '''${SCANNER_HOME}/bin/sonar-scanner \
+                      				-Dsonar.projectKey=webapp \
+                      				-Dsonar.projectName='webapp' \
+                      				-Dsonar.host.url=http://18.60.48.152:9000 \
+                      				-Dsonar.token=sqp_48f8ec60a43aa9b05e9d8442e9a6392dae1e34e5'''
         			}
      			 }
     		}
