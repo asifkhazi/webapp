@@ -15,7 +15,7 @@ pipeline {
             		}
       			steps {
         			withSonarQubeEnv('SonarQube Scanner') {
-				sh '''mvn clean install ${SCANNER_HOME}/bin/sonar-scanner \
+				sh '''${SCANNER_HOME}/bin/mvn clean verify sonar:sonar \
                       		-Dsonar.projectKey=webapp \
                       		-Dsonar.projectName='webapp' \
                       		-Dsonar.host.url=http://18.60.48.152:9000 \
